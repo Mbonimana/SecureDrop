@@ -45,7 +45,7 @@ Drop a file, set a password, and share it confidently — all **encryption happe
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/secure-drop.git
+git clone https://github.com/Mbonimana/secure-drop.git
 
 # Navigate to folder
 cd secure-drop
