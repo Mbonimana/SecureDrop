@@ -1,73 +1,40 @@
-# React + TypeScript + Vite
+# 🔐 SecureDrop — Encrypted File Sharing Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SecureDrop is a **privacy-first file sharing and drop-off system** designed to help individuals, journalists, and organizations securely exchange sensitive documents.  
+All files are **encrypted before upload**, stored safely, and only accessible through a **unique decryption key**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+### 🔒 Security First
+- AES-256 encryption on every upload.
+- Decryption requires a unique one-time access code.
+- Zero-knowledge — the server never sees your decrypted files.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### ⚙️ Core Functionalities
+- **Upload & Encrypt** files from your browser.
+- **Generate secure download links** with one-time access.
+- **Local or cloud storage options** (SQLite, IndexedDB, or Supabase).
+- **Audit logs** to track uploads and downloads (optional in v2).
 
-## Expanding the ESLint configuration
+### 🌍 Future Vision
+- Offline desktop version (Electron-based).
+- Blockchain verification for file authenticity.
+- Secure messaging and anonymous report submissions.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🧱 Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+| Layer | Technology | Purpose |
+|--------|-------------|----------|
+| **Frontend** | React + TypeScript + Tailwind CSS | User Interface |
+| **Backend** | Node.js + Express | API & Encryption Handling |
+| **Database** | SQLite (local) / IndexedDB | File metadata storage |
+| **Encryption** | AES-256 / RSA | File encryption & key management |
+| **Desktop Build** | Electron (future) | Offline & cross-platform app |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
